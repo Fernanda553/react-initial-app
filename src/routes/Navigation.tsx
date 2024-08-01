@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import {
   BrowserRouter,
   Route,
@@ -8,10 +9,10 @@ import {
 import { routes } from './routes'
 import logo from '../logo.svg'
 
-
 export const Navigation = () => {
   return (
-    <BrowserRouter>
+    <Suspense fallback={null}>
+          <BrowserRouter>
       <div className='main-layout'>
         <nav>
           <img src={logo} alt='React Logo' />
@@ -31,5 +32,6 @@ export const Navigation = () => {
         </Routes>
       </div>
     </BrowserRouter>
+    </Suspense>
   )
 }
