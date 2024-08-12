@@ -1,8 +1,8 @@
 import styles from '../styles/styles.module.css'
 import noImage from '../assets/no-image.jpg'
 import useProduct from '../hooks/useProduct'
-import { Dispatch, ReactElement, useContext } from 'react'
-import { createContext } from 'vm'
+import { createContext, Dispatch, ReactElement, useContext } from 'react'
+
 
 interface Props {
     product: Product
@@ -16,7 +16,7 @@ interface Product {
 }
 
 interface ProductContextProps {
-    value: number
+    counter: number
     increaseBy: (value: number) => void
     product: Product
 }
@@ -26,17 +26,30 @@ interface ProductContextProps {
    const { Provider } = ProductContext
 
 export const ProductImage = ({img = ''}) => {
+    const {product} = useContext(ProductContext)
+    let imgToShow = ''
+
+    if(img) {
+        imgToShow = img
+    }else if(product.img){
+        imgToShow = product.img
+    }else{
+        imgToShow = noImage
+    }
+
     return (
         <img
         className={styles.productImg}
-        src={img ? img : noImage}
+        src={imgToShow}
         alt='Product'/>
     )
 }
 
-export const ProductTitle = ({title}: {title: string}) => {
+export const ProductTitle = ({title}: {title?: string}) => {
+   const {product} = useContext(ProductContext)
+
     return(
-        <span className={styles.productDescription}>{title}</span>
+        <span className={styles.productDescription}>{title ? title : product.title}</span>
     )
 }
 
