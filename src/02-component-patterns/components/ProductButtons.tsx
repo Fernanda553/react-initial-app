@@ -1,8 +1,8 @@
-import { useContext } from "react"
 import { ProductContext } from "./ProductCard"
+import { useContext } from "react"
 import styles from '../styles/styles.module.css'
 
-interface Props {
+export interface Props {
     className?: string
 }
 
