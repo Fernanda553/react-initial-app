@@ -1,42 +1,43 @@
 import styles from '../styles/styles.module.css'
 import useProduct from '../hooks/useProduct'
 import { createContext, CSSProperties, ReactElement } from 'react'
-import { OnChangeArgs, Product, ProductContextProps} from '../interfaces/interfaces'
+import { OnChangeArgs, Product, ProductContextProps } from '../interfaces/interfaces'
 
-  export const ProductContext = createContext({} as ProductContextProps)
+export const ProductContext = createContext({} as ProductContextProps)
 
-    const { Provider } = ProductContext
+const { Provider } = ProductContext
 
-    export interface Props{
-      product: Product
-      children?: ReactElement | ReactElement[]
-      className?: string
-      style?: CSSProperties
-      onChange?: (args : OnChangeArgs) => void
-      value?: number
-  }
+export interface Props {
+  product: Product
+  children?: ReactElement | ReactElement[]
+  className?: string
+  style?: CSSProperties
+  onChange?: (args: OnChangeArgs) => void
+  value?: number
+}
 
-export const ProductCard = ({children, product , className, style, onChange, value}: Props) => {
-    const { counter, increaseBy} = useProduct({onChange, product, value})
+export const ProductCard = ({ children, product, className, style, onChange, value }: Props) => {
+  const { counter, increaseBy } = useProduct({ onChange, product, value })
 
   return (
     <Provider value={{
-        counter,
-        increaseBy,
-        product
-    }}>
-            <div
-            className={`${ styles.productCard } ${className}`}
-            style={style}
-            >
+      counter,
+      increaseBy,
+      product
+    }}
+    >
+      <div
+        className={`${styles.productCard} ${className}`}
+        style={style}
+      >
         {children}
-{/*         <ProductImage img={product.img}/>
+        {/*         <ProductImage img={product.img}/>
        <ProductTitle title={product.title}/>
        <ProductButtons
        increaseBy={increaseBy}
        counter={counter}
        /> */}
-    </div>
+      </div>
     </Provider>
   )
 }
