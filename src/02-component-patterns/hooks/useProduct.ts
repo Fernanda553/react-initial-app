@@ -10,23 +10,29 @@ interface UseProductsArgs {
 
 const useProduct = ({ onChange, product, value = 0, initialValues }: UseProductsArgs) => {
   const [counter, setCounter] = useState<number>(initialValues?.count || value)
-
-  const isControlled = useRef(!(onChange == null))
+  const isMounted = useRef(false)
 
   const increaseBy = (value: number) => {
-    if (isControlled.current) {
-      return onChange!({ count: value, product })
-    }
+    let newValue = Math.max(counter + value, 0)
 
-    const newValue = Math.max(counter + value, 0)
-    setCounter(newValue)
+    // Aquí puedo poner una alerta al usuario de que esta llevando más articulos de los que se permiten
+    if(initialValues?.maxCount) newValue = Math.min(newValue, initialValues?.maxCount)
 
-    ;(onChange != null) && onChange({ count: newValue, product })
+    setCounter(newValue);
+
+    onChange && onChange({ count: newValue, product })
   }
 
   useEffect(() => {
-    setCounter(value)
+    isMounted.current = true
+  }, [])
+
+  useEffect(() => {
+    if (!isMounted.current) return
+
+    setCounter(initialValues?.count !== undefined ? initialValues.count : value)
   }, [value])
+
 
   return {
     counter,
