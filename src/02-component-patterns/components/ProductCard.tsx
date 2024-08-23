@@ -18,14 +18,15 @@ export interface Props {
   initialValues?: InitialValues
 }
 
-export const ProductCard = ({ children, product, className, style, onChange, value, initialValues }: Props) => {
-  const { counter, increaseBy } = useProduct({ onChange, product, value, initialValues })
+export const ProductCard = ({ children, product, className, style, onChange, value, initialValues}: Props) => {
+  const { counter, increaseBy, maxCount } = useProduct({ onChange, product, value, initialValues })
 
   return (
     <Provider value={{
       counter,
       increaseBy,
-      product
+      product,
+      maxCount
     }}
     >
       <div

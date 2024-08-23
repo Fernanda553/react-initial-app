@@ -11,6 +11,7 @@ export interface ProductContextProps {
   counter: number
   increaseBy: (value: number) => void
   product: Product
+  maxCount?: number
 }
 export interface ProductCardHOCProps {
   ({ children, product }: ProductCardProps): JSX.Element

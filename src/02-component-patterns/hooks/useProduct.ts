@@ -36,7 +36,8 @@ const useProduct = ({ onChange, product, value = 0, initialValues }: UseProducts
 
   return {
     counter,
-    increaseBy
+    increaseBy,
+    maxCount: initialValues?.maxCount
   }
 }
 
