@@ -9,7 +9,7 @@ interface UseProductsArgs {
 }
 
 const useProduct = ({ onChange, product, value = 0, initialValues }: UseProductsArgs) => {
-  const [counter, setCounter] = useState<number>(initialValues?.count || value)
+  const [counter, setCounter] = useState<number>(initialValues?.count ?? value)
   const isMounted = useRef(false)
 
   const increaseBy = (value: number) => {

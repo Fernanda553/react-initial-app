@@ -1,6 +1,6 @@
 import styles from '../styles/styles.module.css'
 import useProduct from '../hooks/useProduct'
-import { createContext, CSSProperties, ReactElement } from 'react'
+import { createContext, CSSProperties} from 'react'
 import { InitialValues, OnChangeArgs, Product, ProductCardHandlers, ProductContextProps } from '../interfaces/interfaces'
 
 export const ProductContext = createContext({} as ProductContextProps)
@@ -36,7 +36,7 @@ export const ProductCard = ({ children, product, className, style, onChange, val
         {children({
           count: counter,
           maxCountReached,
-          maxCount: initialValues?.count,
+          maxCount: initialValues?.count ?? 10,
           product,
 
           increaseBy,
