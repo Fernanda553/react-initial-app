@@ -1,6 +1,6 @@
 import { lazy, LazyExoticComponent } from 'react'
 import LazyLayout from '../01-lazyload/layout/LazyLayout'
-import NoLazy from '../01-lazyload/pages/NoLazy'
+import RegisterPage from '../03-forms/pages/RegisterPage'
 
 
 type JSXComponent = () => JSX.Element
@@ -24,10 +24,10 @@ export const routes: Route[] = [
 
   },
   {
-    to: '/no-lazy',
-    path: 'no-lazy',
-    Component: NoLazy,
-    name: 'No lazy'
+    to: '/register',
+    path: 'register',
+    Component: RegisterPage,
+    name: 'Register'
 
   }
 ]
