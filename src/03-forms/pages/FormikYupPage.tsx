@@ -11,7 +11,7 @@ interface FormValues {
 
 const FormikYupPage = () => {
 
-  const {handleChange, handleSubmit, handleBlur ,touched, values, errors } = useFormik({
+  const { handleSubmit, getFieldProps ,touched,errors } = useFormik({
     initialValues:{
       firstName: '',
       lastName: '',
@@ -39,32 +39,18 @@ const FormikYupPage = () => {
         <form onSubmit={handleSubmit} noValidate>
         <label htmlFor='firstName'>First Name</label>
         <input
-        type='text'
-        name='firstName'
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={values.firstName}
+        type='text' {...getFieldProps('firstName')}
         />
         {touched.firstName && errors.firstName && <span>{errors.firstName}</span>}
 
         <label htmlFor='lastName'>Last Name</label>
         <input
-        type='text'
-        name='lastName'
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={values.lastName}
-        />
+        type='text' {...getFieldProps('lastName')}/>
         {touched.lastName && errors.lastName && <span>{errors.lastName}</span>}
 
         <label htmlFor='email'>Email Address</label>
         <input
-        type='email'
-        name='email'
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={values.email}
-        />
+        type='email' {...getFieldProps('email')}/>
         {touched.email && errors.email && <span>{errors.email}</span>}
         <button type='submit'>Submit</button>
         </form>
