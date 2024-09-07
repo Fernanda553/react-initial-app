@@ -13,7 +13,9 @@ const FormikComponents = () => {
         initialValues={{
           firstName: '',
           lastName: '',
-          email:''
+          email:'',
+          terms: false,
+          jobType: ''
         }}
 
         onSubmit={(values) => {
@@ -29,14 +31,22 @@ const FormikComponents = () => {
                         .required('Requerido'),
           email: Yup.string()
                     .email('Debe ser un email valido')
-                    .required('Requerido')
+                    .required('Requerido'),
+
+          terms: Yup.boolean()
+                      .oneOf([true], 'Debe de aceptar las condiciones'),
+
+          jobType: Yup.string()
+                      .notOneOf(['it-jr'], 'Esta opción no es permitida')
+                      .required('Requerido')
           })
+
         }
         >
           {(formik )=> (
                 <Form>
                   <label htmlFor='firstName'>First Name</label>
-                  <Field name='fisrtName' type='text'/>
+                  <Field name='firstName' type='text'/>
                   <ErrorMessage name='firstName' component={"span"}/>
 
                   <label htmlFor='lastName'>Last Name</label>
@@ -46,6 +56,24 @@ const FormikComponents = () => {
                   <label htmlFor='email'>Email Address</label>
                   <Field name='email' type='text'/>
                   <ErrorMessage name='email' component={"span"}/>
+
+                  <label htmlFor='jobType'>Job Type</label>
+                  <Field name='jobType' as='select'>
+
+                    <option value='' >Pick something</option>
+                    <option value='developer' >Developer</option>
+                    <option value='designer' >Designer</option>
+                    <option value='it-senior' >IT senior</option>
+                    <option value='it-jr' >IT jr</option>
+
+                  </Field>
+                  <ErrorMessage name='jobType' component={"span"}/>
+
+                  <label htmlFor='terms'>
+                  <Field name='terms' type='checkbox'/>
+                    terms and condition
+                    </label>
+                  <ErrorMessage name='terms' component={"span"}/>
 
                   <button type='submit'>Submit</button>
                 </Form>
