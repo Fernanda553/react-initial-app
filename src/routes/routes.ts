@@ -3,6 +3,7 @@ import LazyLayout from '../01-lazyload/layout/LazyLayout'
 import RegisterPage from '../03-forms/pages/RegisterPage'
 import FormikBasicPage from '../03-forms/pages/FormikBasicPage'
 import FormikYupPage from '../03-forms/pages/FormikYupPage'
+import FormikComponents from '../03-forms/pages/FormikComponents'
 
 
 type JSXComponent = () => JSX.Element
@@ -44,6 +45,13 @@ export const routes: Route[] = [
     path: 'formik-yup',
     Component: FormikYupPage,
     name: 'Formik Yup'
+
+  },
+  {
+    to: '/formik-components',
+    path: 'formik-components',
+    Component: FormikComponents,
+    name: 'Formik Components'
 
   }
 ]

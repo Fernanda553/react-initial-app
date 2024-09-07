@@ -3,12 +3,6 @@ import * as Yup from 'yup'
 
 import '../styles/styles.css'
 
-interface FormValues {
-    firstName: string;
-    lastName: string;
-    email: string;
-}
-
 const FormikYupPage = () => {
 
   const { handleSubmit, getFieldProps ,touched,errors } = useFormik({
