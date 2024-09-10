@@ -1,9 +1,10 @@
-import { Field,Formik, Form, ErrorMessage } from 'formik'
+import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 
 import '../styles/styles.css'
 import { MyTextInput } from '../components/MyTextInput'
 import { MySelect } from '../components/MySelect'
+import { MyCheckBox } from '../components/MyCheckBox'
 
 const FormikAbstraction = () => {
 
@@ -74,11 +75,7 @@ const FormikAbstraction = () => {
                     <option value='it-jr' >IT jr</option>
                   </MySelect>
 
-                  <label htmlFor='terms'>
-                  <Field name='terms' type='checkbox'/>
-                    terms and condition
-                    </label>
-                  <ErrorMessage name='terms' component={"span"}/>
+                  <MyCheckBox label='Terms & Conditions' name='terms'/>
 
                   <button type='submit'>Submit</button>
                 </Form>
