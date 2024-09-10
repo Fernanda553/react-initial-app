@@ -1,11 +1,11 @@
 import { lazy, LazyExoticComponent } from 'react'
 import LazyLayout from '../01-lazyload/layout/LazyLayout'
-import RegisterPage from '../03-forms/pages/RegisterPage'
-import FormikBasicPage from '../03-forms/pages/FormikBasicPage'
-import FormikYupPage from '../03-forms/pages/FormikYupPage'
-import FormikComponents from '../03-forms/pages/FormikComponents'
-import FormikAbstraction from '../03-forms/pages/FormikAbstraction'
-
+import {
+  FormikAbstraction,
+  FormikBasicPage,
+  FormikComponents,
+  FormikYupPage,
+  RegisterPage} from '../03-forms/pages'
 
 type JSXComponent = () => JSX.Element
 
