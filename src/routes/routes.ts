@@ -6,7 +6,8 @@ import {
   FormikComponents,
   FormikYupPage,
   RegisterPage,
-  RegisterFormikPage} from '../03-forms/pages'
+  RegisterFormikPage,
+  DinamicForm} from '../03-forms/pages'
 
 type JSXComponent = () => JSX.Element
 
@@ -68,6 +69,13 @@ export const routes: Route[] = [
     path: 'register-formik',
     Component: RegisterFormikPage,
     name: 'Register Formik Page'
+
+  },
+  {
+    to: '/dinamic-form',
+    path: 'dinamic-form',
+    Component: DinamicForm,
+    name: 'Dinamic Form'
 
   }
 ]
