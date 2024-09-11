@@ -10,7 +10,14 @@
         "type": "input",
         "name": "lastName",
         "placeholder": "Nuñez",
-        "label": "last Name",
+        "label": "Last Name",
+        "value": ""
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "fernanda@gmail.com",
+        "label": "Email",
         "value": ""
     }
 ]
