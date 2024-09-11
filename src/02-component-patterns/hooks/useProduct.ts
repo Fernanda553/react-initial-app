@@ -16,11 +16,11 @@ const useProduct = ({ onChange, product, value = 0, initialValues }: UseProducts
     let newValue = Math.max(counter + value, 0)
 
     // Aquí puedo poner una alerta al usuario de que esta llevando más articulos de los que se permiten
-    if(initialValues?.maxCount) newValue = Math.min(newValue, initialValues?.maxCount)
+    if (initialValues?.maxCount) newValue = Math.min(newValue, initialValues?.maxCount)
 
-    setCounter(newValue);
+    setCounter(newValue)
 
-    onChange && onChange({ count: newValue, product })
+    ;(onChange != null) && onChange({ count: newValue, product })
   }
 
   const reset = () => {
@@ -37,13 +37,12 @@ const useProduct = ({ onChange, product, value = 0, initialValues }: UseProducts
     setCounter(initialValues?.count !== undefined ? initialValues.count : value)
   }, [value])
 
-
   return {
     counter,
-    maxCountReached: !!initialValues?.count && initialValues.maxCount === counter ,
+    maxCountReached: !!initialValues?.count && initialValues.maxCount === counter,
     maxCount: initialValues?.maxCount,
     increaseBy,
-    reset,
+    reset
   }
 }
 

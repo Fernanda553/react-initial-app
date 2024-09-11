@@ -17,11 +17,11 @@ export const ShoppingPage = () => {
             count: 4
           }}
         >
-          {({reset, count, maxCountReached, increaseBy}) => (
+          {({ reset, count, maxCountReached, increaseBy }) => (
             <>
-          <ProductImage />
-          <ProductTitle />
-          <ProductButtons />
+              <ProductImage />
+              <ProductTitle />
+              <ProductButtons />
 
             </>
           )}

@@ -33,34 +33,34 @@ const RegisterFormikPage = () => {
             .required('Requerido')
         })}
       >
-        {({handleReset}) => (
+        {({ handleReset }) => (
           <Form>
             <MyTextInput
-              label="Nombre"
-              name="name"
-              placeholder="Fernanda"
+              label='Nombre'
+              name='name'
+              placeholder='Fernanda'
             />
 
             <MyTextInput
-              label="Email"
-              name="email"
+              label='Email'
+              name='email'
               type='email'
-              placeholder="fernanda.nunez55@gmail.com"
+              placeholder='fernanda.nunez55@gmail.com'
             />
 
             <MyTextInput
-            type='password'
-              label="Password"
-              name="password1"
+              type='password'
+              label='Password'
+              name='password1'
             />
 
             <MyTextInput
-            type='password'
-              label="Confirm password"
-              name="password2"
+              type='password'
+              label='Confirm password'
+              name='password2'
             />
 
-            <button type="submit">Create</button>
+            <button type='submit'>Create</button>
 
             <button type='button' onClick={handleReset}>Reset</button>
           </Form>

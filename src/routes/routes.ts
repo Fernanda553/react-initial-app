@@ -7,19 +7,19 @@ import {
   FormikYupPage,
   RegisterPage,
   RegisterFormikPage,
-  DinamicForm} from '../03-forms/pages'
+  DinamicForm
+} from '../03-forms/pages'
 
 type JSXComponent = () => JSX.Element
 
 interface Route {
-    to: string,
-    path:  string,
-    Component: LazyExoticComponent<JSXComponent> | JSXComponent,
-    name: string
+  to: string
+  path: string
+  Component: LazyExoticComponent<JSXComponent> | JSXComponent
+  name: string
 }
 
-const lazyLayout = lazy(() => import(/* webpackChunkName: "LazyLayout" */'../01-lazyload/layout/LazyLayout'))
-
+const lazyLayout = lazy(async () => await import(/* webpackChunkName: "LazyLayout" */'../01-lazyload/layout/LazyLayout'))
 
 export const routes: Route[] = [
   {
@@ -79,4 +79,3 @@ export const routes: Route[] = [
 
   }
 ]
-
